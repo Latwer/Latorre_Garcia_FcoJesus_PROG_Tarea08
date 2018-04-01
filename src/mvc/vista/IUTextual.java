@@ -73,7 +73,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
 
     public void listarClientes() {
         Consola.mostrarCabecera("Listar clientes");
-        for (Cliente cliente : controlador.getClientes()) {
+        for (Cliente cliente : controlador.obtenerClientes()) {
             if (cliente != null) {
                 System.out.println(cliente);
             }

@@ -1,5 +1,6 @@
 package mvc.controlador;
 
+import java.util.List;
 import mvc.modelo.IModeloAlquilerVehiculos;
 import mvc.modelo.dominio.Cliente;
 import mvc.modelo.dominio.Alquiler;
@@ -52,8 +53,8 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
     }
 
     @Override
-    public Cliente[] getClientes() {
-        return modelo.getClientes();
+    public List<Cliente> obtenerClientes() {
+        return modelo.obtenerClientes();
     }
 
     @Override

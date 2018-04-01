@@ -1,5 +1,6 @@
 package mvc.controlador;
 
+import java.util.List;
 import mvc.modelo.dominio.Alquiler;
 import mvc.modelo.dominio.Cliente;
 import mvc.modelo.dominio.vehiculo.TipoVehiculo;
@@ -20,7 +21,7 @@ public interface IControladorAlquilerVehiculos {
 
     Cliente getCliente(String dni);
 
-    Cliente[] getClientes();
+    List<Cliente> obtenerClientes();
 
     void addVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo);
 

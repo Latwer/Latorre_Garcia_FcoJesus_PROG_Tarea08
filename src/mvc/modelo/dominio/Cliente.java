@@ -88,5 +88,20 @@ public class Cliente implements Serializable {
         return String.format("Identificador: %d, Nombre: %s, DNI: %s, %s",
                 identificador, nombre, dni, direccionPostal);
     }
+    @Override
+    public boolean equals(Object otro) {
+        if (otro == null || !(otro instanceof Cliente)) {
+            return false;
+        }
+        if (otro == this) {
+            return true;
+        }
+        return (dni.equals(((Cliente) otro).getDni()));
+    }
+
+    @Override
+    public int hashCode() {
+        return dni.hashCode();
+    }
 
 }

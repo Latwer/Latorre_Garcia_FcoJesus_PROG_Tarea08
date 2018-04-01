@@ -1,5 +1,6 @@
 package mvc.modelo;
 
+import java.util.List;
 import mvc.modelo.dominio.vehiculo.Vehiculo;
 import mvc.modelo.dominio.*;
 import mvc.modelo.dao.*;
@@ -26,7 +27,7 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     @Override
-    public Cliente[] getClientes() {
+    public List<Cliente> obtenerClientes() {
         return clientes.getClientes();
     }
 
@@ -53,17 +54,17 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
 
     @Override
     public void addCliente(Cliente cliente) {
-        clientes.addCliente(cliente);
+        clientes.anadirCliente(cliente);
     }
 
     @Override
     public void delCliente(String dni) {
-        clientes.delCliente(dni);
+        clientes.borrarCliente(dni);
     }
 
     @Override
     public Cliente getCliente(String dni) {
-        return clientes.getCliente(dni);
+        return clientes.buscarCliente(dni);
     }
 
     @Override

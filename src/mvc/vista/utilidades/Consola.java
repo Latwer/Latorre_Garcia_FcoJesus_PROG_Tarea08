@@ -62,7 +62,7 @@ public class Consola {
 
     public static Vehiculo leerVehiculo() {
         Vehiculo nuevoVehiculo = null;
-        int ordinalVehiculo = 0;
+        int ordinalVehiculo = elegirTipoVehiculo();
         System.out.print("Matrícula: ");
         String matricula = Entrada.cadena();
         System.out.print("Marca: ");

@@ -84,7 +84,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
     public void anadirVehiculo() {
         Consola.mostrarCabecera("Añadir vehiculo");
         Vehiculo vehiculo = Consola.leerVehiculo();
-        int tipoVehiculo = Consola.elegirTipoVehiculo();
+        int tipoVehiculo = 0;
         try {
             controlador.anadirVehiculo(vehiculo, TipoVehiculo.getTipoVehiculoSegunOrdinal(tipoVehiculo));
             System.out.println("Vehiculo añadido satisfactoriamente\n");
@@ -174,6 +174,25 @@ public class IUTextual implements IVistaAlquilerVehiculos {
 
         for (Alquiler alquileresAbiertos : controlador.obtenerAlquileresAbiertos()) {
             System.out.println(alquileresAbiertos);
+        }
+    }
+
+    @Override
+    public void obtenerAlquileresCliente() {
+        String dni = Consola.leerDni();
+
+        try {
+            controlador.buscarCliente(dni);
+            Consola.mostrarCabecera("Listado de Alquileres por Cliente");
+            if (controlador.obtenerAlquileresCliente(dni).size() == 0) {
+                System.out.println("El cliente solicitado no tiene alquileres en curso");
+            } else {
+                for (Alquiler alquileresCliente : controlador.obtenerAlquileresCliente(dni)) {
+                    System.out.println(alquileresCliente);
+                }
+            }
+        } catch (ExcepcionAlquilerVehiculos e) {
+            System.out.printf("\nERROR: %s%n%n", e.getMessage());
         }
     }
     /*public static void main(String[] args) {

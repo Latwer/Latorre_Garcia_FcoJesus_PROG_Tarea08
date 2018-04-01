@@ -25,6 +25,8 @@ public interface IModeloAlquilerVehiculos {
     List<Alquiler> obtenerAlquileres();
 
     List<Alquiler> obtenerAlquileresAbiertos();
+    
+    List<Alquiler> obtenerAlquileresCliente(String dni);
 
     Cliente buscarCliente(String dni);
 

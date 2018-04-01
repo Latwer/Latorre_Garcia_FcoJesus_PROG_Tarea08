@@ -12,5 +12,7 @@ public interface IVistaAlquilerVehiculos {
     void comenzar();
     
     void obtenerAlquileresAbiertos();
+    
+    void obtenerAlquileresCliente();
 
 }

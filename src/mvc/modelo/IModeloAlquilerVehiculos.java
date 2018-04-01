@@ -11,28 +11,28 @@ import mvc.modelo.dominio.vehiculo.Vehiculo;
  */
 public interface IModeloAlquilerVehiculos {
 
-    void addCliente(Cliente cliente);
+    void anadirCliente(Cliente cliente);
 
     void anadirVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo);
 
     //void anadirDatosPrueba();
-    void closeAlquiler(Cliente cliente, Vehiculo vehiculo);
+    void cerrarAlquiler(Cliente cliente, Vehiculo vehiculo);
 
-    void delCliente(String dni);
+    void borrarCliente(String dni);
 
-    void delVehiculo(String matricula);
+    void borrarVehiculo(String matricula);
 
-    Alquiler[] getAlquileres();
+    List<Alquiler> obtenerAlquileres();
 
-    Cliente getCliente(String dni);
+    Cliente buscarCliente(String dni);
 
     List<Cliente> obtenerClientes();
 
-    Vehiculo getVehiculo(String matricula);
+    Vehiculo buscarVehiculo(String matricula);
 
     List<Vehiculo> obtenerVehiculos();
 
-    void openAlquiler(Cliente cliente, Vehiculo vehiculo);
+    void abrirAlquiler(Cliente cliente, Vehiculo vehiculo);
 
     void leerClientes();
 

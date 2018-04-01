@@ -15,26 +15,26 @@ public interface IControladorAlquilerVehiculos {
 
     void salir();
 
-    void addCliente(Cliente cliente);
+    void anadirCliente(Cliente cliente);
 
-    void delCliente(String dni);
+    void borrarCliente(String dni);
 
-    Cliente getCliente(String dni);
+    Cliente buscarCliente(String dni);
 
     List<Cliente> obtenerClientes();
 
-    void addVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo);
+    void anadirVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo);
 
-    void delVehiculo(String matricula);
+    void borrarVehiculo(String matricula);
 
-    Vehiculo getVehiculo(String matricula);
+    Vehiculo buscarVehiculo(String matricula);
 
     List<Vehiculo> obtenerVehiculos();
 
-    void openAlquiler(Cliente cliente, Vehiculo vehiculo);
+    void abrirAlquiler(Cliente cliente, Vehiculo vehiculo);
 
-    void closeAlquiler(Cliente cliente, Vehiculo vehiculo);
+    void cerrarAlquiler(Cliente cliente, Vehiculo vehiculo);
 
-    Alquiler[] getAlquileres();
+    List<Alquiler> obtenerAlquileres();
 
 }

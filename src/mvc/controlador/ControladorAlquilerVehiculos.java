@@ -38,18 +38,18 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
     }
 
     @Override
-    public void addCliente(Cliente cliente) {
-        modelo.addCliente(cliente);
+    public void anadirCliente(Cliente cliente) {
+        modelo.anadirCliente(cliente);
     }
 
     @Override
-    public void delCliente(String dni) {
-        modelo.delCliente(dni);
+    public void borrarCliente(String dni) {
+        modelo.borrarCliente(dni);
     }
 
     @Override
-    public Cliente getCliente(String dni) {
-        return modelo.getCliente(dni);
+    public Cliente buscarCliente(String dni) {
+        return modelo.buscarCliente(dni);
     }
 
     @Override
@@ -58,18 +58,18 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
     }
 
     @Override
-    public void addVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo) {
+    public void anadirVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo) {
         modelo.anadirVehiculo(vehiculo, tipoVehiculo);
     }
 
     @Override
-    public void delVehiculo(String matricula) {
-        modelo.delVehiculo(matricula);
+    public void borrarVehiculo(String matricula) {
+        modelo.borrarVehiculo(matricula);
     }
 
     @Override
-    public Vehiculo getVehiculo(String matricula) {
-        return modelo.getVehiculo(matricula);
+    public Vehiculo buscarVehiculo(String matricula) {
+        return modelo.buscarVehiculo(matricula);
     }
 
     @Override
@@ -78,18 +78,18 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
     }
 
     @Override
-    public void openAlquiler(Cliente cliente, Vehiculo vehiculo) {
-        modelo.openAlquiler(cliente, vehiculo);
+    public void abrirAlquiler(Cliente cliente, Vehiculo vehiculo) {
+        modelo.abrirAlquiler(cliente, vehiculo);
     }
 
     @Override
-    public void closeAlquiler(Cliente cliente, Vehiculo vehiculo) {
-        modelo.closeAlquiler(cliente, vehiculo);
+    public void cerrarAlquiler(Cliente cliente, Vehiculo vehiculo) {
+        modelo.cerrarAlquiler(cliente, vehiculo);
     }
 
     @Override
-    public Alquiler[] getAlquileres() {
-        return modelo.getAlquileres();
+    public List<Alquiler> obtenerAlquileres() {
+        return modelo.obtenerAlquileres();
     }
 
     /* @Override

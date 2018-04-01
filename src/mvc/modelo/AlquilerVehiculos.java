@@ -32,7 +32,7 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     @Override
-    public Alquiler[] getAlquileres() {
+    public List<Alquiler> obtenerAlquileres() {
         return alquileres.getAlquileres();
     }
 
@@ -42,52 +42,46 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     @Override
-    public void delVehiculo(String matricula) {
+    public void borrarVehiculo(String matricula) {
         vehiculos.borrarVehiculo(matricula);
     }
 
     @Override
-    public Vehiculo getVehiculo(String matricula) {
+    public Vehiculo buscarVehiculo(String matricula) {
         return vehiculos.buscarVehiculo(matricula);
     }
 
     @Override
-    public void addCliente(Cliente cliente) {
+    public void anadirCliente(Cliente cliente) {
         clientes.anadirCliente(cliente);
     }
 
     @Override
-    public void delCliente(String dni) {
+    public void borrarCliente(String dni) {
         clientes.borrarCliente(dni);
     }
 
     @Override
-    public Cliente getCliente(String dni) {
+    public Cliente buscarCliente(String dni) {
         return clientes.buscarCliente(dni);
     }
 
     @Override
-    public void openAlquiler(Cliente cliente, Vehiculo vehiculo) {
-        //comprobarDisponibilidadTurismo(cliente, turismo);
-        alquileres.openAlquiler(cliente, vehiculo);
+    public void abrirAlquiler(Cliente cliente, Vehiculo vehiculo) {
+        comprobarExistenciaVehiculo(vehiculo);
+        alquileres.abrirAlquiler(cliente, vehiculo);
     }
 
     @Override
-    public void closeAlquiler(Cliente cliente, Vehiculo vehiculo) {
-        //comprobarExistenciaClienteTurismo(cliente, vehiculo);
-        alquileres.closeAlquiler(cliente, vehiculo);
+    public void cerrarAlquiler(Cliente cliente, Vehiculo vehiculo) {
+        comprobarExistenciaVehiculo(vehiculo);
+        alquileres.cerrarAlquiler(cliente, vehiculo);
     }
 
-    /*private void comprobarDisponibilidadTurismo(Cliente cliente, Vehiculo turismo) {
-        if (clientes.buscarCliente(turismo.getPropietario().getDni()) == null) {
-            throw new ExcepcionAlquilerVehiculos("El propietario del vehículo no existe");
-        }
-    }*/
- /*private void comprobarExistenciaClienteTurismo(Cliente cliente, Vehiculo vehiculo) {
-        if (vehiculos.getVehiculo(vehiculo.getMatricula()) == null && clientes.getCliente(cliente.getDni()) == null) {
-            throw new ExcepcionAlquilerVehiculos("El cliente o turismo no existe");
-        }
-    }*/
+    private void comprobarExistenciaVehiculo(Vehiculo vehiculo) {
+		if (vehiculos.buscarVehiculo(vehiculo.getMatricula()) == null)
+			throw new ExcepcionAlquilerVehiculos("El vehículo no existe");
+	}
     @Override
     public void leerClientes() {
         clientes.leerClientes();

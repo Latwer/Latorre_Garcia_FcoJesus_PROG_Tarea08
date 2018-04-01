@@ -45,7 +45,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
         Consola.mostrarCabecera("Añadir cliente");
         Cliente cliente = Consola.leerCliente();
         try {
-            controlador.addCliente(cliente);
+            controlador.anadirCliente(cliente);
             System.out.println("Cliente añadido satisfactoriamente\n");
         } catch (ExcepcionAlquilerVehiculos e) {
             System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -56,7 +56,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
         Consola.mostrarCabecera("Borrar cliente");
         String dni = Consola.leerDni();
         try {
-            controlador.delCliente(dni);
+            controlador.borrarCliente(dni);
             System.out.println("Cliente borrado satisfactoriamente\n");
         } catch (Exception e) {
             System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -66,7 +66,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
     public void buscarCliente() {
         Consola.mostrarCabecera("Buscar cliente");
         String dni = Consola.leerDni();
-        Cliente cliente = controlador.getCliente(dni);
+        Cliente cliente = controlador.buscarCliente(dni);
         String mensaje = (cliente != null) ? cliente.toString() : "El cliente no existe";
         System.out.printf("%s%n%n", mensaje);
     }
@@ -86,7 +86,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
         Vehiculo vehiculo = Consola.leerVehiculo();
         int tipoVehiculo = Consola.elegirTipoVehiculo();
         try {
-            controlador.addVehiculo(vehiculo, TipoVehiculo.getTipoVehiculoSegunOrdinal(tipoVehiculo));
+            controlador.anadirVehiculo(vehiculo, TipoVehiculo.getTipoVehiculoSegunOrdinal(tipoVehiculo));
             System.out.println("Vehiculo añadido satisfactoriamente\n");
         } catch (ExcepcionAlquilerVehiculos e) {
             System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -97,7 +97,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
         Consola.mostrarCabecera("Borrar turismo");
         String matricula = Consola.leerMatricula();
         try {
-            controlador.delVehiculo(matricula);
+            controlador.borrarVehiculo(matricula);
             System.out.println("Vehiculo borrado satisfactoriamente\n");
         } catch (ExcepcionAlquilerVehiculos e) {
             System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -107,7 +107,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
     public void buscarVehiculo() {
         Consola.mostrarCabecera("Buscar turismo");
         String matricula = Consola.leerMatricula();
-        Vehiculo vehiculoBuscado = controlador.getVehiculo(matricula);
+        Vehiculo vehiculoBuscado = controlador.buscarVehiculo(matricula);
         String mensaje = (vehiculoBuscado != null) ? vehiculoBuscado.toString() : "El vehiculo no existe";
         System.out.printf("%s%n%n", mensaje);
     }
@@ -125,14 +125,14 @@ public class IUTextual implements IVistaAlquilerVehiculos {
     public void abrirAlquiler() {
         Consola.mostrarCabecera("Abrir alquiler");
         String dni = Consola.leerDni();
-        Cliente cliente = controlador.getCliente(dni);
+        Cliente cliente = controlador.buscarCliente(dni);
         String matricula = Consola.leerMatricula();
-        Vehiculo turismo = controlador.getVehiculo(matricula);
+        Vehiculo turismo = controlador.buscarVehiculo(matricula);
         if (cliente == null && turismo == null) {
             System.out.println("ERROR: No existe un cliente con dicho dni o un vehículo con dicha matrícula\n");
         } else {
             try {
-                controlador.openAlquiler(cliente, turismo);
+                controlador.abrirAlquiler(cliente, turismo);
                 System.out.println("Alquiler abierto satisfactoriamente\n");
             } catch (ExcepcionAlquilerVehiculos e) {
                 System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -143,14 +143,14 @@ public class IUTextual implements IVistaAlquilerVehiculos {
     public void cerrarAlquiler() {
         Consola.mostrarCabecera("Cerrar alquiler");
         String dni = Consola.leerDni();
-        Cliente cliente = controlador.getCliente(dni);
+        Cliente cliente = controlador.buscarCliente(dni);
         String matricula = Consola.leerMatricula();
-        Vehiculo turismo = controlador.getVehiculo(matricula);
+        Vehiculo turismo = controlador.buscarVehiculo(matricula);
         if (cliente == null && turismo == null) {
             System.out.println("ERROR: No existe un cliente con dicho dni o un vehículo con dicha matrícula\n");
         } else {
             try {
-                controlador.closeAlquiler(cliente, turismo);
+                controlador.cerrarAlquiler(cliente, turismo);
                 System.out.println("Alquiler cerrado satisfactoriamente\n");
             } catch (ExcepcionAlquilerVehiculos e) {
                 System.out.printf("ERROR: %s%n%n", e.getMessage());
@@ -160,7 +160,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
 
     public void listarAlquileres() {
         Consola.mostrarCabecera("Listar alquileres");
-        for (Alquiler alquiler : controlador.getAlquileres()) {
+        for (Alquiler alquiler : controlador.obtenerAlquileres()) {
             if (alquiler != null) {
                 System.out.println(alquiler);
             }

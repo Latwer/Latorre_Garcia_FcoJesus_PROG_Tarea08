@@ -124,6 +124,11 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
         return alquileres.obtenerAlquileresCliente(dni);
     }
 
+    @Override
+    public List<Alquiler> obtenerAlquileresVehiculo(String matricula) {
+        return alquileres.obtenerAlquileresVehiculo(matricula);
+    }
+
     /*@Override
     public void anadirDatosPrueba() {
         Cliente cliente1 = new Cliente("Juanma", "11111111A", new DireccionPostal("calle esmeralda", "Almería", "04001"));

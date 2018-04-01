@@ -195,6 +195,25 @@ public class IUTextual implements IVistaAlquilerVehiculos {
             System.out.printf("\nERROR: %s%n%n", e.getMessage());
         }
     }
+
+    @Override
+    public void obtenerAlquileresVehiculo() {
+        String matricula = Consola.leerMatricula();
+
+        try {
+            controlador.buscarVehiculo(matricula);
+            Consola.mostrarCabecera("Listado de Alquileres por vehículo");
+            if (controlador.obtenerAlquileresVehiculo(matricula).size() == 0) {
+                System.out.println("El vehículo solicitado no tiene alquileres en curso.");
+            } else {
+                for (Alquiler alquileresVehiculo : controlador.obtenerAlquileresVehiculo(matricula)) {
+                    System.out.println(alquileresVehiculo);
+                }
+            }
+        } catch (ExcepcionAlquilerVehiculos e) {
+            System.out.printf("\nERROR: %s%n%n", e.getMessage());
+        }
+    }
     /*public static void main(String[] args) {
         AlquilerVehiculos miAlquiler = new AlquilerVehiculos();
         Cliente cliente1 = new Cliente("Juanma", "11111111A", new DireccionPostal("calle esmeralda", "Almería", "04001"));

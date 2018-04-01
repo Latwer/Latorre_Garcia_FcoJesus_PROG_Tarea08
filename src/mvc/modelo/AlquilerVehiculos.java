@@ -79,9 +79,11 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     private void comprobarExistenciaVehiculo(Vehiculo vehiculo) {
-		if (vehiculos.buscarVehiculo(vehiculo.getMatricula()) == null)
-			throw new ExcepcionAlquilerVehiculos("El vehículo no existe");
-	}
+        if (vehiculos.buscarVehiculo(vehiculo.getMatricula()) == null) {
+            throw new ExcepcionAlquilerVehiculos("El vehículo no existe");
+        }
+    }
+
     @Override
     public void leerClientes() {
         clientes.leerClientes();
@@ -110,6 +112,11 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     @Override
     public void escribirAlquileres() {
         alquileres.escribirAlquileres();
+    }
+
+    @Override
+    public List<Alquiler> obtenerAlquileresAbiertos() {
+        return alquileres.obtenerAlquileresAbiertos();
     }
 
     /*@Override

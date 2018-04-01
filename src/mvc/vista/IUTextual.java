@@ -167,6 +167,15 @@ public class IUTextual implements IVistaAlquilerVehiculos {
         }
         System.out.println("");
     }
+
+    @Override
+    public void obtenerAlquileresAbiertos() {
+        Consola.mostrarCabecera("ALQUILERES ABIERTOS");
+
+        for (Alquiler alquileresAbiertos : controlador.obtenerAlquileresAbiertos()) {
+            System.out.println(alquileresAbiertos);
+        }
+    }
     /*public static void main(String[] args) {
         AlquilerVehiculos miAlquiler = new AlquilerVehiculos();
         Cliente cliente1 = new Cliente("Juanma", "11111111A", new DireccionPostal("calle esmeralda", "Almería", "04001"));

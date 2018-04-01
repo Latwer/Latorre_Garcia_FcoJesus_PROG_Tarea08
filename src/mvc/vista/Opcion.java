@@ -65,7 +65,13 @@ public enum Opcion {
         public void ejecutar() {
             vista.listarAlquileres();
         }
+    },
+    LISTAR_ALQUILERES_ABIERTOS("Listado de Alquileres Abiertos") {
+        public void ejecutar() {
+            vista.obtenerAlquileresAbiertos();
+        }
     };
+
     private String mensaje;
     private static IUTextual vista;
 

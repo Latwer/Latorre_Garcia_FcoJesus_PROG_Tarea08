@@ -37,4 +37,6 @@ public interface IControladorAlquilerVehiculos {
 
     List<Alquiler> obtenerAlquileres();
 
+    List<Alquiler> obtenerAlquileresAbiertos();
+
 }

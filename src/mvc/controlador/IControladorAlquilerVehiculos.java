@@ -29,7 +29,7 @@ public interface IControladorAlquilerVehiculos {
 
     Vehiculo getVehiculo(String matricula);
 
-    Vehiculo[] getVehiculos();
+    List<Vehiculo> obtenerVehiculos();
 
     void openAlquiler(Cliente cliente, Vehiculo vehiculo);
 

@@ -22,7 +22,7 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     @Override
-    public Vehiculo[] getVehiculos() {
+    public List<Vehiculo> obtenerVehiculos() {
         return vehiculos.getVehiculos();
     }
 
@@ -37,19 +37,18 @@ public class AlquilerVehiculos implements IModeloAlquilerVehiculos {
     }
 
     @Override
-    public void addVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo) {
-        //comprobarDisponibilidadTurismo(vehiculo);
-        vehiculos.addVehiculo(vehiculo, tipoVehiculo);
+    public void anadirVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo) {
+        vehiculos.anadirVehiculo(vehiculo, tipoVehiculo);
     }
 
     @Override
     public void delVehiculo(String matricula) {
-        vehiculos.delVehiculo(matricula);
+        vehiculos.borrarVehiculo(matricula);
     }
 
     @Override
     public Vehiculo getVehiculo(String matricula) {
-        return vehiculos.getVehiculo(matricula);
+        return vehiculos.buscarVehiculo(matricula);
     }
 
     @Override

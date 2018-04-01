@@ -114,7 +114,7 @@ public class IUTextual implements IVistaAlquilerVehiculos {
 
     public void listarVehiculos() {
         Consola.mostrarCabecera("Listar vehiculos");
-        for (Vehiculo vehiculo : controlador.getVehiculos()) {
+        for (Vehiculo vehiculo : controlador.obtenerVehiculos()) {
             if (vehiculo != null) {
                 System.out.println(vehiculo);
             }

@@ -59,7 +59,7 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
 
     @Override
     public void addVehiculo(Vehiculo vehiculo, TipoVehiculo tipoVehiculo) {
-        modelo.addVehiculo(vehiculo, tipoVehiculo);
+        modelo.anadirVehiculo(vehiculo, tipoVehiculo);
     }
 
     @Override
@@ -73,8 +73,8 @@ public class ControladorAlquilerVehiculos implements IControladorAlquilerVehicul
     }
 
     @Override
-    public Vehiculo[] getVehiculos() {
-        return modelo.getVehiculos();
+    public List<Vehiculo> obtenerVehiculos() {
+        return modelo.obtenerVehiculos();
     }
 
     @Override
